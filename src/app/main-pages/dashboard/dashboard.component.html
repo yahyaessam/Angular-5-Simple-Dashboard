@@ -1,3 +1,57 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="example-wrapper">
+        <!-- Buttons -->
+        <button kendoButton *ngIf="!windowOpened" (click)="open('window')">To do list</button>
+        <button kendoButton *ngIf="!latestOpened" (click)="open('latest')">Latest News</button>
+        <button kendoButton *ngIf="!tasks1Opened" (click)="open('tasks1')">Tasks 1</button>
+        <button kendoButton *ngIf="!tasks2Opened" (click)="open('tasks2')">Tasks 2</button>
+        <!-- End Buttons -->
+        <kendo-dialog title="Please confirm" *ngIf="dialogOpened" (close)="close('dialog')" [minWidth]="250" [width]="450">
+          <p style="margin: 30px; text-align: center;">Are you sure you want to continue?</p>
+          <kendo-dialog-actions>
+            <button kendoButton (click)="action('no')">No</button>
+            <button kendoButton (click)="action('yes')" primary="true">Yes</button>
+          </kendo-dialog-actions>
+        </kendo-dialog>
+        <!-- To Do List -->
+        <kendo-window [(top)]="windowTop" [(left)]="windowLeft" [minWidth]="300" [minHeight]="230" title="To do list" *ngIf="windowOpened" (close)="close('window')">
+          <ul>
+            <li>Collect information</li>
+            <li>Get Requirements</li>
+            <li>Organize data</li>
+            <li>Write Documentation</li>
+          </ul>
+        </kendo-window>
+        <!-- Latest News -->
+        <kendo-window [(top)]="latestTop" [(left)]="latestLeft" [minWidth]="300" [minHeight]="230" title="Latest news" *ngIf="latestOpened" (close)="close('latest')">
+          <ul>
+            <li>Collect information</li>
+            <li>Get Requirements</li>
+            <li>Organize data</li>
+            <li>Write Documentation</li>
+          </ul>
+        </kendo-window>
+        <!-- Taska 1 -->
+        <kendo-window [(top)]="tasks1Top" [(left)]="tasks1Left" [minWidth]="300" [minHeight]="230" title="Tasks 1" *ngIf="tasks1Opened" (close)="close('tasks1')">
+          <ul>
+            <li>Collect information</li>
+            <li>Get Requirements</li>
+            <li>Organize data</li>
+            <li>Write Documentation</li>
+          </ul>
+        </kendo-window>
+        <!-- Tasks 2 -->
+        <kendo-window [(top)]="tasks2Top" [(left)]="tasks2Left" [minWidth]="300" [minHeight]="230" title="Tasks 2" *ngIf="tasks2Opened" (close)="close('tasks2')">
+          <ul>
+            <li>Collect information</li>
+            <li>Get Requirements</li>
+            <li>Organize data</li>
+            <li>Write Documentation</li>
+          </ul>
+          </kendo-window>
+      </div>
+    </div>
+  </div>
+</div>

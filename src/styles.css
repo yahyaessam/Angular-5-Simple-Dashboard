@@ -8,3 +8,9 @@ body {
 .pointer {
     cursor: pointer;
 }
+
+/* kindo Elements */
+.k-window-titlebar {
+    color: #fff;
+    background-color: #222d32;
+}

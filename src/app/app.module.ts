@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Kindo Modules
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
 // Layout
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -38,6 +39,7 @@ import { DropDownDirective } from './directives/drop-down.directive';
     BrowserAnimationsModule,
     // Kindo Modules
     ButtonsModule,
+    DialogsModule,
     // Routes
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },
