@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-
+  listItems = [
+    'UI Development',
+    'Back-end Development',
+    'Android Development'
+  ]
   constructor() { }
-
+  public onTabSelect(e) {
+    console.log(e);
+  }
   ngOnInit() {
   }
 

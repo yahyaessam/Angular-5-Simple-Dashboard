@@ -5,9 +5,15 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Fontawesome
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // Kindo Modules
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { DateInputModule } from '@progress/kendo-angular-dateinputs';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { InputsModule } from '@progress/kendo-angular-inputs';
 // Layout
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -37,9 +43,15 @@ import { DropDownDirective } from './directives/drop-down.directive';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    // FontAwesome
+    AngularFontAwesomeModule,
     // Kindo Modules
     ButtonsModule,
     DialogsModule,
+    LayoutModule,
+    DateInputModule,
+    InputsModule,
+    DropDownsModule,
     // Routes
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },
