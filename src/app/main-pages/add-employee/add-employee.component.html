@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container padding-top">
   <div class="row">
     <div class="col-md-10 col-md-offset-2">
       <kendo-tabstrip (tabSelect)="onTabSelect($event)">
@@ -32,7 +32,7 @@
                                       <span class="required"> *</span>
                                       </label>
                     <div class="relative-wrapper">
-                      <kendo-dropdownlist id="department" ngModel required #department class="form-control" [data]="listItems" [value]="'Basketball'">
+                      <kendo-dropdownlist id="department" name="department" ngModel required #department class="form-control" [data]="listItems" [value]="'Basketball'">
                       </kendo-dropdownlist>
                       <i *ngIf="department.valid && department.dirty" class="fa fa-check-circle"></i>
                     </div>

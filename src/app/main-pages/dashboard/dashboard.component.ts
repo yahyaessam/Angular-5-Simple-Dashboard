@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   /* Position properties */
-  public windowTop: number = 50;
+  public windowTop: number = 30;
   public windowLeft: number = 25;
-  public latestTop: number = 50;
+  public latestTop: number = 30;
   public latestLeft: number = 350;
-  public tasks1Top: number = 300;
+  public tasks1Top: number = 280;
   public tasks1Left: number = 25;
-  public tasks2Top: number = 300;
+  public tasks2Top: number = 280;
   public tasks2Left: number = 350;
   /* Toggle Properties */
   public dialogOpened: boolean = false;
