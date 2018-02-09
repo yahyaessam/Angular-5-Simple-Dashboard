@@ -19,8 +19,13 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { DateInputModule } from '@progress/kendo-angular-dateinputs';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { RippleModule } from '@progress/kendo-angular-ripple';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 
 @NgModule({
     imports: [
@@ -34,8 +39,12 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
         DialogsModule,
         LayoutModule,
         DateInputModule,
+        DateInputsModule,
+        DatePickerModule,
         InputsModule,
         DropDownsModule,
+        RippleModule,
+        GridModule,
         NgbDropdownModule.forRoot()
     ],
     declarations: [

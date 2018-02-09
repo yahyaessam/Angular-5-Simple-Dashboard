@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-employee',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
+  @ViewChild('addUserForm') addingUserForm: NgForm;
+  @ViewChild('searchUser') searchUserForm: NgForm;
+  public gridData: any[] = [];
+  public maxDate: Date = new Date(2000,1,1);
   listItems = [
     'UI Development',
     'Back-end Development',
@@ -16,6 +21,13 @@ export class AddEmployeeComponent implements OnInit {
     console.log(e);
   }
   ngOnInit() {
+  }
+
+  addUser() {
+    console.log(this.addingUserForm.value);
+  }
+  onUserSearch() {
+    console.log(this.searchUserForm.value);
   }
 
 }

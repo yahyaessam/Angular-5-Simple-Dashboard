@@ -5,9 +5,11 @@
 span.required {
     color:red;
     font-weight:bold;
+    display:inline-block;
 }
 .form-group label {
     margin-bottom:10px;
+    display:inline-block;
 }
 input[type="submit"] {
     margin-top:25px;
@@ -18,7 +20,7 @@ input.ng-invalid.ng-touched {
 }
 select.ng-valid.ng-dirty,
 input.ng-valid.ng-dirty {
-    border-color:green;
+    /*border-color:green;*/
 }
 .help-block {
     position: absolute;
@@ -62,4 +64,10 @@ input.ng-valid.ng-dirty {
     border:1px solid #ef652c;
     color:crimson;
     margin:25px auto;
-} 
+}
+.padding-top {
+    padding-top:70px;
+}
+margin-top {
+    margin-top:63px !important;
+}
