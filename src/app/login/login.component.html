@@ -1,0 +1,17 @@
+<div class="login-page" [@routerTransition]>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <i class="fa fa-user"></i>
+      <h1>Andalusia Group</h1>
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <div class="form-content">
+          <div class="form-group">
+            <input type="text" ngModel required name="name" class="form-control input-underline input-lg" placeholder="Please Enter Your name">
+          </div>
+        </div>
+        <input type="submit" class="btn rounded-btn" [disabled]="!loginForm.valid" value="Log In">
+        
+      </form>
+    </div>
+  </div>
+</div>

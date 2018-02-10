@@ -1,0 +1,170 @@
+<div class="container padding-top">
+  <div class="row">
+    <div class="col-md">
+      <kendo-tabstrip (tabSelect)="onTabSelect($event)">
+        <kendo-tabstrip-tab [title]="'Add Employee'" [selected]="true">
+          <ng-template kendoTabContent>
+            <div class="form-wrapper">
+              <form class="k-form" (ngSubmit)="addUser()" #addUserForm="ngForm">
+                
+                <div class="row">
+                  <!-- Employee Name Input -->
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="k-form-field" for="name">
+                        <span>Employee Name <span class="required"> *</span></span>
+                        
+                        </label>
+                        <input  kendoTextBox id="name" type="text" name="name" required ngModel #name="ngModel" class="form-control k-text-box">
+                      <div *ngIf="!name.valid && name.touched" class="help-block">
+                        <p>Please Enter Employee Name</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Department DropDown Menu -->
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="k-form-field" for="department">
+                          <span>Department <span class="required"> *</span></span>
+                        </label>
+                        <kendo-dropdownlist id="department" name="department" ngModel required #department class="form-control" [data]="listItems" >
+                          <div *ngIf="!department.valid && department.touched" class="help-block">
+                            <p>Please Choose Department</p>
+                          </div>
+                        </kendo-dropdownlist>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!-- Employee Name Input -->
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="k-form-field" for="code">
+                          <span>Employee Code <span class="required"> *</span></span>
+                        </label>
+                        <kendo-numerictextbox id="code" type="number" min="0" name="code" required ngModel #code class="form-control k-text-box">
+                        </kendo-numerictextbox>
+                      <div *ngIf="!code.valid && code.touched" class="help-block">
+                        <p>Please Enter Employee Code</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Department DropDown Menu -->
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="k-form-field" for="birthdate">
+                          <span>Birth Date <span class="required"> *</span></span>
+                      </label>
+                        <kendo-datepicker id="birthdate" [max]="maxDate" name="birthdate" ngModel required #birthdate class="form-control">
+                          </kendo-datepicker>
+                      <div *ngIf="!birthdate.valid && birthdate.touched" class="help-block">
+                        <p>Please Enter Employee Birth Date</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md">
+                    <div kendoRippleContainer>
+                      <p>Gender</p>
+                      <p style="line-height: 2.5em;">
+                        <input type="radio" id="male" name="gender" ngModel value="male" class="k-radio" checked />
+                        <label class="k-radio-label" for="male">Male</label>
+                        <input type="radio" id="female" ngModel name="gender" value="female" class="k-radio" />
+                        <label class="k-radio-label" for="female">Female</label><br />
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <input type="submit" class="k-button k-primary" value="Add" [disabled]="!addUserForm.valid">
+                  </div>
+                </div>
+                <div [ngClass]="success ? 'visible' : 'hidden'">
+                  <p class="success" >Employee Added Successfully </p>
+                </div>
+              </form>
+
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+        <kendo-tabstrip-tab #searchTab [title]="'Search Employee'">
+          <ng-template kendoTabContent>
+            <div class="form-wrapper">
+              <form class="k-form" (ngSubmit)="dataStateChange(state.filter)" #searchUser="ngForm">
+
+                <div class="row">
+                  <!-- Employee Name Input -->
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="k-form-field" for="searchName">
+                          <span>Employee Name <span class="required"> *</span></span>
+                        </label>
+                      <div class="relative-wrapper">
+                        <input kendoTextBox id="searchName" (input)="onNameChange($event.target.value)" type="text" name="searchName" required [(ngModel)]="state.filter.filters[0].value" #searchName class="form-control k-text-box">
+                      </div>
+
+                      <div *ngIf="!searchName.valid && searchName.touched" class="help-block">
+                        <p>Please Enter Employee Name</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Department DropDown Menu -->
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label class="k-form-field" for="searchdepartment">
+                        <span>Department <span class="required"> *</span></span>
+                      </label>
+                        <kendo-dropdownlist id="searchdepartment" (input)="onDepartmentChange($event.target.value)" name="searchdepartment" [(ngModel)]="state.filter.filters[1].value" required  #searchdepartment class="form-control" [data]="listItems">
+                          </kendo-dropdownlist>
+                      <div *ngIf="!searchdepartment.valid && searchdepartment.touched" class="help-block">
+                        <p>Please Choose Department</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div class="col-md">
+                    <div class="form-group">
+                        <input class="k-button k-primary margin-top" type="submit" value="search"/>
+                    </div>
+                  </div>-->
+                </div>
+              </form>
+              <!-- Start Grid Table -->
+              <div class="row">
+                <div class="col">
+                  <kendo-grid 
+                  [data]="gridData"
+                  [pageSize]="state.take" 
+                  [skip]="state.skip" 
+                  [sort]="state.sort" 
+                  [filter]="state.filter" 
+                  [sortable]="true" 
+                  [pageable]="true"
+                  [filterable]="true"
+                  [selectable]="selectableSettings"
+                  (dataStateChange)="dataStateChange($event)" 
+                  [height]="410">
+                  <kendo-grid-checkbox-column showSelectAll="true" width="50"></kendo-grid-checkbox-column>
+                    <kendo-grid-column field="code" title="Code" width="70">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="name" title="Name" width="160">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="department" title="Department" width="180">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="birthdate" title="Birth Date" width="220">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="gender" title="Gender" width="90">
+                    </kendo-grid-column>
+                  </kendo-grid>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+      </kendo-tabstrip>
+    </div>
+  </div>
+</div>
