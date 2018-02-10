@@ -1,6 +1,6 @@
 
 .form-wrapper {
-    margin:20px auto;
+    margin:20px auto 100px;
 }
 span.required {
     color:red;
@@ -14,14 +14,12 @@ span.required {
 input[type="submit"] {
     margin-top:25px;
 }
-select.ng-invalid.ng-touched,
-input.ng-invalid.ng-touched {
-    border:1px solid red;
+.hidden {
+    display:none;
 }
-select.ng-valid.ng-dirty,
-input.ng-valid.ng-dirty {
-    /*border-color:green;*/
-}
+/*input.ng-invalid.ng-touched {
+    
+}*/
 .help-block {
     position: absolute;
     color:#d9534f;
@@ -29,36 +27,9 @@ input.ng-valid.ng-dirty {
 .form-group {
     margin-top:20px;
 }
-.relative-wrapper {
-    position:relative;
-}
-.relative-wrapper i {
-    position: absolute;
-    left: 10px;
-    top: 8px;
-    color: #5cb85c;
-    font-size: 16px;
-}
-.already-registered-wrapper {
-    padding: 12px 10px;
-    border-top: 3px solid #ef652c;
-    background-color: #ddd;
-    margin-top: 10px;
-    font-weight: bold;
-}
-.relative-wrapper1 {
-    position:relative;
-}
-.relative-wrapper1 i {
-    position: absolute;
-    left: 15px;
-    top: 13px;
-    color: #5cb85c;
-    font-size: 16px;
-}
 .err-msg {
     display:none;
-    padding:10px;
+    padding:30px 0 10px;
     text-align:center;
     border-radius:10px;
     border:1px solid #ef652c;
@@ -67,7 +38,4 @@ input.ng-valid.ng-dirty {
 }
 .padding-top {
     padding-top:70px;
-}
-margin-top {
-    margin-top:63px !important;
 }

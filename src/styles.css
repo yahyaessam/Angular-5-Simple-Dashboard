@@ -38,3 +38,6 @@ p {
     font-weight:bold;
     letter-spacing:1px;
 }
+.k-input.k-state-invalid, .k-input.k-textbox.k-state-invalid, .k-input.k-textbox.ng-invalid, .k-input.k-textbox:invalid, .k-input.ng-invalid, .k-input:invalid, .k-textbox.k-state-invalid, .k-textbox.ng-invalid, .k-textbox:invalid {
+    border-color:#ddd;
+}
