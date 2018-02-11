@@ -39,3 +39,6 @@ input[type="submit"] {
 .padding-top {
     padding-top:70px;
 }
+.capitalized {
+    text-transform: capitalize;
+}

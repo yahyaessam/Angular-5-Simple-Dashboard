@@ -63,3 +63,12 @@ export function slideToTop() {
         ])
     ]);
 }
+
+export function fadeOut() {
+    return trigger('visibilityChanged', [
+        state('shown', style({ opacity: 1 })),
+        state('hidden', style({ opacity: 0 })),
+        transition('shown => hidden', animate('600ms')),
+        transition('hidden => shown', animate('300ms')),
+    ])
+}
