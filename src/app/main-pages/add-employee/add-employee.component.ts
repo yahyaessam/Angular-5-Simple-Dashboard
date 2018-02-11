@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { process, State } from '@progress/kendo-data-query';
-import { Router } from '@angular/router';
+import { fadeOut } from '../../router.animations';
 import { NgForm } from '@angular/forms';
 import {
   GridComponent,
@@ -20,6 +20,7 @@ export class AddEmployeeComponent implements OnInit {
   public searchName:string;
   success: boolean = false;
   selectableSettings = 'multiple';
+  /* Initial dummy data for employees */
   public employees: any[] = [{
     name:"Yahya Essam",
     code: 11,
@@ -51,59 +52,46 @@ export class AddEmployeeComponent implements OnInit {
     ];
   public state: State = {
     skip: 0,
-    take: 5,
+    take: 8,
 
     // Initial filter descriptor
     filter: {
       logic: 'and',
-      filters: [{ field: 'name', operator: 'contains', value: 'm' },
-                { field: 'department', operator: 'contains', value:'U'}]
+      filters: [{ field: 'name', operator: 'contains', value: 'm' }]
     }
   };
   public gridData: GridDataResult = process(this.employees, this.state);
   public maxDate: Date = new Date(2000,1,1);
+  public filterName = '';
+  public filterDepartment = '';
   listItems = [
     'UI Development',
     'Back-end Development',
     'Android Development'
   ];
-  constructor(private router: Router) { }
+  constructor() { }
   public onTabSelect(e) {
     this.success = false;
+    console.log(this.gridData);
+    this.gridData = process(this.employees, this.state);
   }
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
+  /* Add New Employee Function 
+  This will Push new employee data into employees Array
+  */
   addUser() {
     console.log(this.addingUserForm.value);
     this.employees.push(this.addingUserForm.value);
     this.success = true;
-    setTimeout(function() {
-      this.success = false;
-      console.log(this.success);
-    }, 10000);
-    this.addingUserForm.value.clear();
-
+    this.addingUserForm.reset();
   }
-  onUserSearch(state: DataStateChangeEvent): void {
-    this.state = state;
-    this.gridData = process(this.employees, this.state);
+  onStartAdd() {
+    this.success = false;
   }
-  onNameChange(searchValue: string): void {
-    
-    this.state.filter.filters[0] = { field: 'name', operator: 'contains', value: searchValue };
-    this.gridData = process(this.employees, this.state);
-    console.log(this.state);
-  }
-  onDepartmentChange(searchValue: string) {
-    this.state.filter.filters[1] = { field: 'department', operator: 'contains', value: searchValue };
-    this.gridData = process(this.employees, this.state);
-  }
+  /* Build in Filter of Kendo Grid */
   public dataStateChange(state: DataStateChangeEvent): void {
     this.state = state;
     this.gridData = process(this.employees, this.state);
-    console.log(this.state);
-    console.log(this.gridData, "clicked search")
   }
 
 }

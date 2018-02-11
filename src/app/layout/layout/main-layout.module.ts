@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutRoutingModule } from './layout-routing.module';
+import { FilterPipe } from '../../filter.pipe';
 // Main Layout
 import { LayoutComponent } from './layout.component';
 import { MenuComponent } from '../menu/menu.component';
@@ -25,7 +26,6 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { RippleModule } from '@progress/kendo-angular-ripple';
 import { GridModule } from '@progress/kendo-angular-grid';
-
 
 @NgModule({
     imports: [
@@ -54,7 +54,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
         FooterComponent,
         DashboardComponent,
         AddEmployeeComponent,
-        SearchEmployeeComponent
+        SearchEmployeeComponent,
+        FilterPipe
         ]
 })
 export class MainLayoutModule { }

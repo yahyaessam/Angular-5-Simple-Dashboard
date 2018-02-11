@@ -7,6 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  userName: string = localStorage.getItem('name');
   isActive: boolean = false;
   showMenu: string = '';
   pushRightClass: string = 'push-right';
